@@ -33,24 +33,13 @@ network = pylast.LastFMNetwork(
 	api_secret=API_SECRET
 )
 
-## Authenticate the user
-def login():
-	token = spotipy.util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
-	if token:
-		sp = spotipy.Spotify(auth=token)
-	else:
-		print("Token not found for ", username)
-
-	return sp
-
 ## Begin the recommendation process
 def start(username):
 	user = pylast.User(username, network)
-	sp = login()
 	top_songs = favourites(user)
 
 	## Retrieve features
-	features, missing = fetch_audio_features(sp, top_songs)
+	features, missing = fetch_audio_features(top_songs)
 	top_songs.drop(top_songs.index[missing], inplace=True)
 	
 	df = features.assign(weight=top_songs["weight"])
@@ -162,7 +151,6 @@ def plot2D(X, y):
 
 ## Return a dataframe of the user's top 50 tracks
 def favourites(user):
-	sp = login()
 	raw_fm = user.get_top_tracks(period="12months", limit=300)
 	
 	missing = 0
@@ -205,14 +193,13 @@ def convert_df(sp_result):
 	return df
 
 ## Requests audio features for tracks from Spotify's API
-def fetch_audio_features(sp, df):
+def fetch_audio_features(df):
 	playlist = df[['track_id']]
 	audio_features = []
 
 	## Search for the audio features of the top 50 songs
 	for i in range(0, playlist.shape[0], 100):
 		audio_features.extend(sp.audio_features(playlist.iloc[i:i + 100, 0]))
-
 		
 	## Make a list of dictionaries of audio features of each song
 	features_list, missing = [], []
@@ -242,7 +229,7 @@ def get_recs(sp, top_songs, scaler, regression, pca):
 	df = pd.concat([df, common_df]).drop_duplicates(subset=['track_id'], keep=False)
 	
 	## Predict on the new songs' audio features using the trained linear regression and PCA
-	features, missing = fetch_audio_features(sp, df)
+	features, missing = fetch_audio_features(df)
 	df.drop(df.index[missing], inplace=True)
 	
 	X = scaler.transform(np.array(features))
