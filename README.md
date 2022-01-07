@@ -1,8 +1,6 @@
 # Spoti.fmRec
 Recommender app using LastFM and Spotify.
 
-Recommender system using Spotify and LastFM
-
 ### Things I've Tried
 - Linear regression, polynomial regression, lasso regression, ridge regression
 
