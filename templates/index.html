@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='style.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+		
+		<title>Spoti.fmRec</title>
+	</head>
+	<body>
+		<div class="middle" id="main">
+			<h1><span class="spotify">Spoti</span><span class="lastfm">.fm</span> Recommender</h1>
+			<form action="/recs" method="post" id="form">
+				<input autocomplete="off" autofocus name="username" placeholder="LastFM Username" type="text">
+			</form>
+			<div class="middle" id="recs"></div>
+		</div>
+	</body>
+</html>
