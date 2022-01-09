@@ -59,7 +59,7 @@ def start(username):
 	regression = LinearRegression().fit(X_pc, y)
 	
 	## Evaluate the model
-	evaluate_model(X_pc, y)
+	# evaluate_model(X_pc, y)
 	
 	# plot3D(X, y)
 
@@ -221,7 +221,7 @@ def get_recs(sp, top_songs, scaler, regression, pca):
 	
 	sp_list = []
 	for i in range(0, len(seed_tracks), 5):
-		recs = sp.recommendations(seed_tracks=seed_tracks[i:i+5], limit=100)
+		recs = sp.recommendations(seed_tracks=seed_tracks[i:i+5], limit=50)
 		sp_list += recs['tracks']
 	
 	## Remove duplicates and songs from top 50
