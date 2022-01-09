@@ -3,6 +3,11 @@ window.onload = function () {
 	document.getElementById("form").addEventListener('submit', function (event) {
 		// Prevent the page from refreshing
 		event.preventDefault();
+		var recs = document.getElementById("recs")
+		if (recs) {
+			recs.remove();
+		}
+		
 		var main = document.getElementById("main");
 		var loader = document.createElement("div");
 		loader.className = "loader";
@@ -15,6 +20,7 @@ window.onload = function () {
 		}).then(async function (response) {
 			var recs = document.createElement("div");
 			recs.id = "recs";
+			recs.className = "middle";
 			
 			recs.innerHTML = await response.text();
 			

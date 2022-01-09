@@ -1,11 +1,35 @@
+/* fresh start */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
 html, body {
 	margin: 0; 
 	height: 100%; 
-	overflow: hidden;
 	background-color: black;
 }
 
 h1 {
+	font-size: 36px;
+	padding-top: 20px;
+	margin-bottom: 20px;
 	color: white;
 }
 
@@ -58,7 +82,6 @@ th {
 #main {
 	width: 60%;
 	height: 100vh;
-	padding: 24px 0;
 	text-align: center;
 	align-content: center;
 	background-color: #111111;
