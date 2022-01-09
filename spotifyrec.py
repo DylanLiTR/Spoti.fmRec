@@ -152,7 +152,7 @@ def plot2D(X, y):
 """
 ## Return a dataframe of the user's top 50 tracks
 def favourites(user):
-	raw_fm = user.get_top_tracks(period="12months", limit=300)
+	raw_fm = user.get_top_tracks(period="12months", limit=150)
 	
 	missing = 0
 	track_ids, playcount = [], []
@@ -246,4 +246,4 @@ def get_recs(sp, top_songs, scaler, regression, pca):
 	
 	return recs_df.head(25)[["Title", "Artist"]]
 
-# start()
+# start("dylanli")

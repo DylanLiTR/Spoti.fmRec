@@ -5,3 +5,4 @@ sklearn
 spotipy
 pylast
 numpy
+rq
