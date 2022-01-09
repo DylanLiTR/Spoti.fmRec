@@ -11,3 +11,5 @@ Recommender app using LastFM and Spotify.
 ### Limitations
 - Linear regression underfits complex music tastes
   - Almost no correlation between audio features and user playcount (0.05 coefficient of determination on 5 fold cross validation with my LastFM statistics)
+- Process too slow (> 30sec) for Heroku
+  - May need to use background task or threading with AJAX
