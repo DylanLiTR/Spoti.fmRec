@@ -6,5 +6,4 @@ spotipy
 pylast
 numpy
 matplotlib
-os
 mpl_toolkits
