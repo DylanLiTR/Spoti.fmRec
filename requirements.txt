@@ -1,0 +1,10 @@
+flask
+gunicorn
+pandas
+sklearn
+spotipy
+pylast
+numpy
+matplotlib
+os
+mpl_toolkits
