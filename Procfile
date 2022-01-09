@@ -1,1 +1,1 @@
-web: gunicorn app:spotiflask
+web: gunicorn spotiflask:app
