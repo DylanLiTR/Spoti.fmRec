@@ -5,5 +5,3 @@ sklearn
 spotipy
 pylast
 numpy
-matplotlib
-mpl_toolkits

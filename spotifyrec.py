@@ -2,7 +2,7 @@ import spotipy
 import pylast
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import os
 from sklearn import svm
 from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
@@ -11,8 +11,8 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import KFold
 from sklearn.decomposition import PCA
-from mpl_toolkits.mplot3d import Axes3D
 from sklearn.metrics import r2_score
+# from mpl_toolkits.mplot3d import Axes3D
 
 client_id = os.environ['CLIENT_ID']
 client_secret = os.environ['CLIENT_SECRET']
@@ -98,6 +98,7 @@ def remove_outliers(df, y):
 	return features, y
 
 ## Plot the linear regression (3D hyperplane) of the dimension reduced features using PCA
+"""
 def plot3D(X, y):
 	## PCA setup and regression
 	pca_audio = PCA(n_components=2)
@@ -148,7 +149,7 @@ def plot2D(X, y):
 	ax.plot(pc_audio, prediction)
 	
 	plt.show()
-
+"""
 ## Return a dataframe of the user's top 50 tracks
 def favourites(user):
 	raw_fm = user.get_top_tracks(period="12months", limit=300)
